@@ -2,6 +2,8 @@
 
 This repo contains a single Zsh shell script that registers a `govers` shell command.  This command provides several operations for managing your Go installation (or installations, plural).
 
+h/t to Robbie Coleman, who was instrumental in putting this together.
+
 ```bash
 > govers help
   usage: govers use|list|remove|installed [-v] {goversion}
