@@ -69,6 +69,9 @@ goversGet() {
   fi
   local cmd=("${version}" "download")
   "${cmd[@]}"
+  # the command above unconditionally extracts to $HOME/sdk so we need to do some shuffling if
+  # $GOVERS_INSTALL_DIR is not the default
+  [ -d "${GOVERS_INSTALL_DIR}/${version}" ] || mv "${HOME}/sdk/${version}" "${GOVERS_INSTALL_DIR}"
 }
 goversSet() {
   local version="$1"
