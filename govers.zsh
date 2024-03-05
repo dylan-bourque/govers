@@ -64,7 +64,7 @@ goversWrite() {
 goversGet() {
   local version="$1"
 
-  if ! go get golang.org/dl/"${version}" ; then
+  if ! go install golang.org/dl/"${version}@latest" ; then
     goversError "failed to download ${version}"
   fi
   local cmd=("${version}" "download")
@@ -81,10 +81,10 @@ goversSet() {
     goversWrite "${version}"
   else
     echo "${version} not found, installing with \"go get golang.org/dl/${version}; ${version} download\""
-    local option="${GO111MODULE}"
-    export GO111MODULE=off
+    #local option="${GO111MODULE}"
+    #export GO111MODULE=off
     goversGet "${version}"
-    export GO111MODULE="${option}"
+    #export GO111MODULE="${option}"
     goversWrite "${version}"
   fi
   go version
