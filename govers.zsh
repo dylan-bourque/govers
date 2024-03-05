@@ -81,10 +81,7 @@ goversSet() {
     goversWrite "${version}"
   else
     echo "${version} not found, installing with \"go get golang.org/dl/${version}; ${version} download\""
-    #local option="${GO111MODULE}"
-    #export GO111MODULE=off
     goversGet "${version}"
-    #export GO111MODULE="${option}"
     goversWrite "${version}"
   fi
   go version
